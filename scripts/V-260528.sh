@@ -1,7 +1,10 @@
 #!/bin/bash
 
-# This script configures the SSH server to automatically terminate a session 
-# after 10 minutes of inactivity by setting 'ClientAliveInterval' to 600 in '/etc/ssh/sshd_config'.
+# Configure the SSH server to automatically terminate a session 
+# after 10 minutes of inactivity by setting 'ClientAliveInterval'
+# to 600 in '/etc/ssh/sshd_config'.
+# Link: https://www.stigviewer.com/stig/red_hat_enterprise_linux_7/2017-07-08/finding/V-72237
+
 
 # Define the SSH config file
 SSHD_CONFIG="/etc/ssh/sshd_config"

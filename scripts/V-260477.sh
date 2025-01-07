@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# This script configures APT to remove unused kernel packages and dependencies 
-# after updates by modifying the "/etc/apt/apt.conf.d/50-unattended-upgrades" file.
+# Configure APT to remove unused kernel packages and dependencies after updates.
+# Link: https://www.stigviewer.com/stig/canonical_ubuntu_18.04_lts/2021-11-29/finding/V-233780
 
 # Define the APT configuration file path
 APT_CONF_FILE="/etc/apt/apt.conf.d/50unattended-upgrades"

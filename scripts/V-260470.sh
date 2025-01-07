@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# This script generates a hashed password for GRUB and configures the root user 
-# with it, securing the bootloader. It prevents unauthorized access to the GRUB
-# menu and boot-time modifications by requiring a password for root access.
+# Configure the grub superuser bootloader password with pdkdf2
+# Link: https://www.stigviewer.com/stig/canonical_ubuntu_22.04_lts/2024-03-21/finding/V-260470
+
 
 # Specify the root password here (plain text)
 ROOT_PASSWORD="cBmUsMc2024!@#"

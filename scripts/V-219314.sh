@@ -1,7 +1,9 @@
 #!/bin/bash
 
-# This script configures SSH to prevent unattended login by setting the
-# 'PermitEmptyPasswords' and 'PermitUserEnvironment' options in '/etc/ssh/sshd_config'.
+# Do not allow users to login with empty passwords or send environment variables
+# durring login.
+# Link: https://www.stigviewer.com/stig/canonical_ubuntu_18.04_lts/2023-09-08/finding/V-219314
+
 
 # Define the SSH config file
 SSHD_CONFIG="/etc/ssh/sshd_config"

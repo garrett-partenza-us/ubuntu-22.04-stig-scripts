@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# This script configures the SSH server to disable X11 forwarding by setting 
-# 'X11Forwarding no' in the '/etc/ssh/sshd_config' file to enhance security.
+# Disable X11 forwarding
+# Link: https://www.stigviewer.com/stig/canonical_ubuntu_22.04_lts/2024-03-21/finding/V-260529
+
 
 # Define the SSH config file
 SSHD_CONFIG="/etc/ssh/sshd_config"

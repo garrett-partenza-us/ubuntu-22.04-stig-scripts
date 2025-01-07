@@ -1,7 +1,9 @@
 #!/bin/bash
 
-# This script configures the SSH server to prevent remote hosts from connecting
-# to the proxy display by setting 'X11UseLocalhost yes' in the '/etc/ssh/sshd_config' file.
+# Configure the SSH server to prevent remote hosts from connecting
+# to the proxy display
+# https://www.stigviewer.com/stig/canonical_ubuntu_18.04_lts/2021-11-29/finding/V-233780
+
 
 # Define the SSH config file
 SSHD_CONFIG="/etc/ssh/sshd_config"

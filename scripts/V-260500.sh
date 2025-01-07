@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# This script checks the group ownership of system library files in /lib,
-# /lib64, and /usr/lib, and ensures that any files not group-owned by 'root'
-# are corrected.
+# Change library files group ownership to root
+# Link: https://www.stigviewer.com/stig/canonical_ubuntu_22.04_lts/2024-05-30/finding/V-260500
+
 
 # Define the directories to check
 DIRECTORIES=("/lib" "/lib64" "/usr/lib")

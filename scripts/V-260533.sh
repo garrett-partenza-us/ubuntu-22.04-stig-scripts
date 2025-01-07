@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# This script configures the SSH server to use only FIPS-validated key exchange
-# algorithms by setting the 'KexAlgorithms' option in the '/etc/ssh/sshd_config' file.
+# Change the SSH configuration to only accept FIPS-validated key exchanges
+# Link: https://www.stigviewer.com/stig/canonical_ubuntu_22.04_lts/2024-03-21/finding/V-260533
+
 
 # Define the SSH config file
 SSHD_CONFIG="/etc/ssh/sshd_config"
