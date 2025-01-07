@@ -1,10 +1,24 @@
 #!/bin/bash
 
+sudo apt-get install auditd
+sudo systemctl enable auditd
+sudo chown root:root /etc/audit/rules.d/stig.rules
+sudo chmod 644 /etc/audit/rules.d/stig.rules
+sudo touch /etc/audit/rules.d/stig.rules
+
+# Modify /etc/audit/auditd.conf to set log_group to root
+sudo sed -i '/^log_group/c\log_group = root' /etc/audit/auditd.conf
+
+# Reload auditd configuration to apply the changes
+sudo systemctl kill auditd -s SIGHUP
+
 # Define the audit rules file
 AUDIT_RULES_FILE="/etc/audit/rules.d/stig.rules"
 
 # Define an array of audit rules
 AUDIT_RULES=(
+    " -a always,exit -F path=/sbin/apparmor_parser -F perm=x -F auid>=1000 -F auid!=unset -k perm_chng"
+    " -a always,exit -F path=/usr/bin/chcon -F perm=x -F auid>=1000 -F auid!=unset -k perm_chng"
     "-a always,exit -F path=/usr/bin/mount -F perm=x -F auid>=1000 -F auid!=unset -k privileged-mount"
     "-a always,exit -F path=/usr/bin/chacl -F perm=x -F auid>=1000 -F auid!=unset -k perm_chng"
 		"-a always,exit -F path=/usr/bin/chsh -F perm=x -F auid>=1000 -F auid!=unset -k priv_cmd "
@@ -33,7 +47,7 @@ AUDIT_RULES=(
 )
 
 # Loop over each rule and add it
-for AUDIT_RULE in "${AUDIT_RULES[@]}"; do 
+for AUDIT_RULE in "${AUDIT_RULES[@]}"; do
     # Add the new rule to the audit file
     echo "$AUDIT_RULE" | sudo tee -a "$AUDIT_RULES_FILE" > /dev/null
 done
