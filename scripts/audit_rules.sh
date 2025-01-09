@@ -6,6 +6,15 @@ sudo chown root:root /etc/audit/rules.d/stig.rules
 sudo chmod 644 /etc/audit/rules.d/stig.rules
 sudo touch /etc/audit/rules.d/stig.rules
 
+# Modify or add the space_left and space_left_action parameters in the auditd.conf file
+sudo sed -i '/^space_left=/c\space_left = 25%' /etc/audit/auditd.conf
+sudo sed -i '/^space_left_action=/c\space_left_action = email' /etc/audit/auditd.conf
+
+# Use tee to ensure the changes are appended if the lines were not already present
+echo 'space_left = 25%' | sudo tee -a /etc/audit/auditd.conf > /dev/null
+echo 'space_left_action = email' | sudo tee -a /etc/audit/auditd.conf > /dev/null
+
+
 # Modify /etc/audit/auditd.conf to set log_group to root
 sudo sed -i '/^log_group/c\log_group = root' /etc/audit/auditd.conf
 

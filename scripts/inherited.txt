@@ -1,4 +1,5 @@
 V-260573: MFA is provided via cloud and/or VPN.
 V-260575: MFA is provided via cloud and/or VPN.
 V-219316: Skipping due to worrying this will break bastion login.
+V-260574 and V-260576: Azure uses CAC authentication
 
